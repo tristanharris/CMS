@@ -1,0 +1,27 @@
+!!!
+%html
+  = render :partial => "/shared/head", :locals => {:theme => true}
+
+  %body
+    = render :partial => "/shared/site_bar"
+    #header
+      #hl
+        %a{:href => '/'}
+          %img{:src => '/theme/images/Smalllogo.png', :alt => ''}
+      %h1#title= page_title
+      %span#description= @meta.meta_description
+      %hr.clear
+
+    %table.layout{:width => '100%', :summary => ''}
+      %tr
+        %td#menu.sidebar
+          .menuwrapper
+            = render :partial => "/shared/menu"
+        %td#content{:rowspan => '2'}
+          = yield
+      %tr
+        %td#bottom.sidebar
+          Romsey<br />
+          %a{:href => 'http://www.scoutbase.org.uk/support/fellow/', :title => 'Scoutbase: Fellowship'}
+            %img.flogo{:src => '/theme/images/fe-cl-neg2b.gif', :alt => 'Fellowship'}
+    = render :partial => '/shared/draft_page_message' unless @page.nil? or @page.live?

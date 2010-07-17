@@ -1,0 +1,151 @@
+@import url('/stylesheets/refinery/application.css');
+/*
+    Override default refinery application CSS below.
+    Formatting applies to all frontend.
+*/
+/* Fellowship CSS Document */
+
+/* General stuff */
+body {
+  margin:0;
+}
+
+p{
+  margin:0px auto 16px auto;
+}
+
+table {
+  border-width: 1px 1px 1px 1px;
+  border-style: outset outset outset outset;
+  border-color: gray gray gray gray;
+  margin:0 auto 20px auto;
+}
+th, td {
+  border-width: 1px 1px 1px 1px;
+  border-style: inset inset inset inset;
+  border-color: gray gray gray gray;
+}
+th {
+  text-align:center;
+}
+
+.banner {
+  background:lightgreen;
+  width:80%;
+  border:solid;
+  padding:10px;
+  margin:20px;
+}
+.banner h3, .banner h2, .banner h1 {
+  margin:2px;
+}
+
+/* Template */
+#header {
+  position:relative;/*fix for ie6 peekaboo bug*/
+  background:#391766;
+  color:white;
+  border-bottom:#cdd600 solid;
+}
+
+#description {
+  padding:0 0 0 100px;
+}
+
+#hl {
+  position:relative;/*fix for ie6 peekaboo bug*/
+  margin:10px 50px 10px 10px;
+  float:left;
+}
+
+.flogo {
+  margin:0;
+  margin-bottom:20px;
+  padding:0;
+  border:none;
+  color:white;
+}
+
+#title {
+  margin:0 20px 5px 20px;
+  padding:20px 0 10px 0;
+  border-bottom:#cdd600 solid;
+}
+
+#menu a:visited, #menu a:link {
+  color:white;
+}
+
+.menuwrapper {
+  margin:20px 10px;
+  padding:0 4px;
+  border-left:#cdd600 solid;
+}
+
+#menu ul { padding:0 4px;}
+
+#menu li, #menu nav{
+  alist-style-type:none;
+  awhite-space: nowrap;
+  margin-left:10px;
+  padding:0 0 0 4px;
+  text-indent: -10px;
+}
+
+#content {
+  padding:4px;
+  text-align:justify;
+  vertical-align:top;
+}
+
+table.layout {
+  margin:0;
+  border:none;
+  border-collapse: collapse;
+}
+td.layout {
+  border:none;
+}
+td#content {
+  border:none;
+}
+td.sidebar {
+  vertical-align:top;
+  background:#391766;
+  color:white;
+  border:none;
+  border-right:#cdd600 solid;
+  width:150px;
+}
+
+td#bottom {
+  vertical-align:bottom;
+  text-align:center;
+}
+
+hr.clear {
+  clear:both;
+  height:1px;
+  margin: -1px 0 0 0; padding:0;
+  border:none;
+  visibility: hidden;
+}
+
+p.old {
+  color:grey;
+}
+
+/* Page specific stuff */
+
+/* Login */
+table#loginTable{
+  display:inline;
+  border:none;
+}
+table#loginTable td {
+  border:none;
+}
+#login p {
+  visibility:hidden;
+}
+
