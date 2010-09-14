@@ -1,0 +1,20 @@
+!!!
+%html
+  = render :partial => "/shared/head", :locals => {:theme => true}
+
+  %body
+    = render :partial => "/shared/site_bar"
+    #title
+      #sitelogo
+        %img{:src => '/theme/images/ExplorerSmall.gif', :alt => ''}
+      #sectionlogo= logo
+      %h1= page_title
+      %hr.clear
+
+    #content
+      = yield
+
+
+    = render :partial => '/shared/draft_page_message' unless @page.nil? or @page.live?
+
+

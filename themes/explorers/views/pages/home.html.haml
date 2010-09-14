@@ -1,0 +1,92 @@
+:javascript
+  function preload(page,img) {
+    var d=document;
+    if(d.images){
+      if(d.logos) {
+        d.logos[page]=new Image;
+        d.logos[page].src="/theme/images/"+img;
+      }
+    }
+  }
+
+  function changeon() {
+    var d=document;
+    if (d.logos[this.logoid]) {
+    clearTimeout(timeoutid);
+    d.images.logo.src=d.logos[this.logoid].src;
+    }
+  }
+
+  function changedefault() {
+    var d=document;
+    d.images.logo.src=d.logos['default'].src;
+  }
+
+  function changeoff() {
+    timeoutid=setTimeout("changedefault()", 200);
+  }
+
+  function preloadall() {
+    var d=document;
+    if(d.images){
+      if(!d.logos) d.logos=new Array();
+    }
+    if(d.images){
+      if(d.logos) {
+        d.logos['default']=new Image;
+        d.logos['default'].src=d.images.logo.src;
+      }
+    }
+    preload('what-is',"ExplorerSmaller.gif");
+    preload('programmes',"ExplorerSmaller.gif");
+    preload('events',"Romsey.png");
+    preload('awards',"Awards.png");
+    preload('badges',"Activities.png");
+    preload('contacts',"Phone.png");
+    preload('gallery',"Frame.png");
+    preload('reports',"Scroll.png");
+    preload('changelog',"Scroll.png");
+    preload('desc',"Desk.png");
+    preload('map',"Map.png");
+    preload('links',"Links.png");
+  }
+
+  var timeoutid=null;
+
+  window.onload=function(){
+    preloadall();
+    var as=document.getElementById('menu').getElementsByTagName('A');
+    for (var i=0;i<as.length;i++) {
+      as[i].onmouseout=changeoff;
+      as[i].onmouseover=changeon;
+      as[i].logoid=as[i].href.replace(/^.*\//,'');
+    }
+  }
+
+/[if lte IE 6]
+  :javascript
+    // Fix for IE to make css background:fixed work
+    function correctPosition(oElement,oPos,oWhich) {
+      while( oElement.offsetParent ) {
+              oPos -= oElement['offset'+oWhich];
+              oElement = oElement.offsetParent;
+      }
+      oPos += document.documentElement['scroll'+oWhich] ? document.documentElement['scroll'+oWhich] : document.body['scroll'+oWhich];
+      return oPos;
+    }
+    document.writeln( '<style type="text\/css">' );
+    document.writeln( "#menu a { background-position: expression( correctPosition(this,(document.documentElement.clientWidth-20-600)/2,'Left')+'px '+correctPosition(this,(document.documentElement.clientHeight-28-600)/2,'Top')+'px'); }" );
+
+    document.writeln( '<\/style>' );
+
+#homepage
+  #potd
+    = @page[:body]
+  %img#logo{:name => 'logo', :src => "/theme/images/ScoutsSmall.gif", :alt => "Logo", :width => 120, :height => 120, :border => 0}
+  #menu
+    = render :partial => "/shared/menu"
+  %hr.clear
+  %hr
+  %center
+    %a{:href => "mailto:webmaster@romsey-explorers.org.uk?subject=ExWeb:"} Email the Webmaster
+

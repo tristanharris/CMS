@@ -1,0 +1,7 @@
+= @page[:body]
+= render(:partial => "/shared/menu", :locals => {:collection => @page.children}) if @page[:body].gsub(/<[^>]+>/,'').chomp.strip.empty?
+
+%hr.clear
+#footer
+  = render :partial => "/shared/menu", :locals => {:collection => breadcrumbs}
+
