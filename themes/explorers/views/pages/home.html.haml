@@ -37,16 +37,16 @@
         d.logos['default'].src=d.images.logo.src;
       }
     }
-    preload('what-is',"ExplorerSmaller.gif");
-    preload('programmes',"ExplorerSmaller.gif");
-    preload('events',"Romsey.png");
+    preload('what-is-explorer-scouts',"ExplorerSmaller.gif");
+    preload('unit-programmes',"ExplorerSmaller.gif");
+    preload('district-events-courses',"Romsey.png");
     preload('awards',"Awards.png");
-    preload('badges',"Activities.png");
-    preload('contacts',"Phone.png");
+    preload('activity-badges',"Activities.png");
+    preload('unit-contacts',"Phone.png");
     preload('gallery',"Frame.png");
-    preload('reports',"Scroll.png");
+    preload('event-reports',"Scroll.png");
     preload('changelog',"Scroll.png");
-    preload('desc',"Desk.png");
+    preload('jottings-from-the-desc',"Desk.png");
     preload('map',"Map.png");
     preload('links',"Links.png");
   }
@@ -84,7 +84,7 @@
     = @page[:body]
   %img#logo{:name => 'logo', :src => "/theme/images/ScoutsSmall.gif", :alt => "Logo", :width => 120, :height => 120, :border => 0}
   #menu
-    = render :partial => "/shared/menu"
+    = render :partial => "/shared/menu", :locals => {:dom_id => 'home_menu'}
   %hr.clear
   %hr
   %center

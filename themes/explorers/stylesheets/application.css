@@ -180,6 +180,10 @@ div#nav {
   line-height:140%;
 }
 
+#home_menu div {
+  display: list-item;
+}
+
 #footer nav#menu div {
   display: inline;
   border-left: solid 1px black;
